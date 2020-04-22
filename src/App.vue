@@ -10,6 +10,14 @@
     <option disabled value="">Select A Character</option>
     <option v-for="character in characters" :value="character">{{character.name}}</option>
   </select>
+
+  <div v-if="selectedCharacter">
+      <h1>{{selectedCharacter.name}}</h1>
+      <p>{{selectedCharacter.status}}</p>
+      <img :src="selectedCharacter.image">
+
+  </div>
+
 </div>
 </template>
 
