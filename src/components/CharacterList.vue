@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <ul>
-      <list-item v-for="(character, index) in characters" :character="character" :key="index"></list-item>
+      <list-item v-for="(character, index) in characters" :character='character' :key='index'></list-item>
     </ul>
   </div>
 

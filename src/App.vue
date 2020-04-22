@@ -3,6 +3,7 @@
   <h1>Rick And Morty</h1>
   <div>
     <character-list :characters='characters'></character-list>
+    <!-- <list-item v-for="(character, index) in characters" :character="character" :key="index"></list-item> -->
   </div>
 </div>
 </template>
@@ -21,7 +22,7 @@ export default {
   mounted(){
     fetch('https://rickandmortyapi.com/api/character/')
     .then(res => res.json())
-    .then(characters => this.characters = characters)
+    .then(data => this.characters = data.results)
   },
   components: {
     "character-list": CharacterList
