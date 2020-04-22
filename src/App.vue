@@ -14,6 +14,7 @@
   <div v-if="selectedCharacter">
       <h1>{{selectedCharacter.name}}</h1>
       <p>{{selectedCharacter.status}}</p>
+      <p>{{selectedCharacter.origin.name}}</p>
       <img :src="selectedCharacter.image">
 
   </div>
