@@ -3,6 +3,7 @@
   <h1>Rick And Morty</h1>
   <div>
     <character-list :characters='characters'></character-list>
+    <character-detail v-if="selectedCharacter" :character="selectedCharacter"></character-detail>
     <!-- <list-item v-for="(character, index) in characters" :character="character" :key="index"></list-item> -->
   </div>
 </div>
@@ -10,6 +11,8 @@
 
 <script>
 import CharacterList from './components/CharacterList.vue';
+import {eventBus} from './main.js';
+import  CharacterDetail from './components/CharacterDetail.vue';
 
 export default {
   name: 'app',
@@ -23,9 +26,15 @@ export default {
     fetch('https://rickandmortyapi.com/api/character/')
     .then(res => res.json())
     .then(data => this.characters = data.results)
+
+    eventBus.$on('character-selected', (character) => {
+      this.selectedCharacter = character;
+    })
+
   },
   components: {
-    "character-list": CharacterList
+    "character-list": CharacterList,
+    "character-detail": CharacterDetail
   }
 }
 </script>
